@@ -17,6 +17,7 @@ contract AntiFlashLoan {
     // Block all proxies (including flash loans).
     modifier antiProxy() {
         require(tx.origin == msg.sender, "Proxy call not allowed.");
+        _;
     }
 
     // Block all non-whitelisted proxies (including flash loans).
